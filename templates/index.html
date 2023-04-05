@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MBTA Closest Station Finder</title>
+    <!-- learned how to use url_for from flask documentation https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/ -->
+    <link rel="icon" href="{{ url_for('static', filename='mbta_fav.png') }}" />
+    <style>
+      form {
+        background-color: silver;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 50%;
+      }
+      div {
+        text-align: center;
+      }
+      body {
+        background-image: url("static/mbta.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      h3 {
+        text-align: center;
+        background-color: silver;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        /* Learned opacity from chatgpt! */
+      }
+      label {
+        font-weight: bold;
+      }
+      textarea {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      Hello, and welcome to our web application! Please fill out the form below
+      to find the closest MBTA station to you
+    </h3>
+    <div>
+      <form action="/nearest_mbta" method="POST">
+        <label for="address"
+          >What address do you want to find the closest MBTA station to?
+          <br /><textarea
+            type="text"
+            name="address"
+            placeholder="Enter the address here..."
+            rows="3"
+            cols="40"
+          ></textarea>
+        </label>
+        <br>
+        <input type="submit" value = "Submit">
+      </form>
+    </div>
+  </body>
+</html>
