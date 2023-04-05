@@ -29,36 +29,32 @@
         background-color: silver;
         padding-top: 10px;
         padding-bottom: 10px;
+        font-size: 50px;
         /* Learned opacity from chatgpt! */
       }
       label {
         font-weight: bold;
       }
-      textarea {
-        margin-top: 10px;
-      }
+     p {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+     }
+     div {
+      background-color: silver;
+      padding-top: 10px;
+      padding-bottom: 10px;
+     }
     </style>
   </head>
   <body>
     <h3>
-      Hello, and welcome to our web application! Please fill out the form below
-      to find the closest MBTA station to you
+      Here is the MBTA station closest to you!
     </h3>
     <div>
-      <form action="" method="POST">
-        <label for="address"
-          >What address do you want to find the closest MBTA station to?
-          <br /><textarea
-            type="text"
-            name="address"
-            placeholder="Enter the address here..."
-            rows="3"
-            cols="40"
-          ></textarea>
-        </label>
-        <br>
-        <input type="button" value = "Submit">
-      </form>
+       <p>Your closest MBTA is {{ mbta_info[0] }}</p> 
+       <p>Your next train is at {{ mbta_info[2] }}</p>
+       <p>It is {{ mbta_info[1] }} that this station is wheelchair accessible</p> 
     </div>
   </body>
 </html>

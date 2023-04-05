@@ -6,12 +6,11 @@ from pprint import pprint
 
 #Base Urls
 MAPBOX_BASE_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places"
-MBTA_BASE_URL = ""
 
 
-def query_input_mapbox():
+
+def query_input_mapbox(query):
     """Takes the query and builds the URL for mapbox"""
-    query = input("What would you like your query to be?")
     #ChatGPT told me how to replace spaces with %20
     query = query.replace(" ","%20")
     url = f'{MAPBOX_BASE_URL}/{query}.json?types=address&access_token={MAPBOX_TOKEN}&types=poi'
@@ -42,14 +41,15 @@ def mbta_stop_finder(lat_long) -> tuple[str, bool]:
     name_and_wheel = []
     name_and_wheel = (station_name, wheel_chair_accessible)
     name_and_wheel = tuple(name_and_wheel)
-    pprint(name_and_wheel)
+    # pprint(name_and_wheel)
     return name_and_wheel
 
-def find_stop_near():
-    url = query_input_mapbox()
+def find_stop_near(address):
+    url = query_input_mapbox(address)
     response_data = get_mapbox_info(url)
     lat_long = get_lat_long(response_data)
     closest_stop = mbta_stop_finder(lat_long)
+    return closest_stop
 
 if __name__ == "__main__":
     find_stop_near()
