@@ -12,13 +12,13 @@ def home():
 
 @app.post('/nearest_mbta')
 def nearest_station():
-    # try:
+    try:
         address = request.form.get('address')
         mbta_info = find_stop_near(address)
         print(mbta_info)
         return render_template('mbta_station.html', mbta_info = mbta_info)
-    # except: 
-    #     return render_template('error.html')
+    except: 
+        return render_template('error.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
