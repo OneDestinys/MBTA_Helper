@@ -1,14 +1,12 @@
 # MBTA_Helper
-Jacob Foti, Bidhi Mandal
+# Jacob Foti, Bidhi Mandal
 
 1. __Project Overview (~1 paragraph)__
-Write a short abstract describing your project. Include all the extensions to the basic requirements.
 
 	Our project is a flask-based web application that allows users to input an address and find the nearest MBTA stop along with the arrival time of the next train. We have extended the basic requirements by integrating APIs such as Mapbox and MBTA. That allowed us to achieve functionality. We also incorporated error handling and logging to help identify and fix issues more quickly. We included scoping and testing to ensure that all necessary functionality is included and to catch errors and any dysfunctionality. This project can be further extended by adding more information about those stops, operation hours, etc. 
 
 
 2. __Reflection (~3 paragraphs + screenshots)__
-After you finish the project, Please write a short document for reflection.
 
 *a. Discuss the process point of view, including what went well and what could be improved. Provide reflections on topics such as project scoping, testing, and anything else that could have helped the team succeed.*
 
