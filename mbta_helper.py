@@ -52,20 +52,5 @@ def find_stop_near(address):
     closest_stop = mbta_stop_finder(lat_long)
     return closest_stop
 
-def get_arrival_time(station_id):
-    "It helps users to get the arrival time for a given stop."
-    url = f'https://api-v3.mbta.com/predictions?filter[stop]=<station_id>&filter[route_type]=2&sort=arrival_time&api_key=<your_api_key>'
-    headers = {'x-api-key': MBTA_API_KEY}
-    req = urllib.request.Request(url, headers=headers)
-    f = urllib.request.urlopen(req)
-    response_text = f.read().decode('utf-8')
-    response_data = json.loads(response_text)
-    if response_data['data']: 
-        arrival_time = response_data['data'][0]['attributes']['arrival_time']
-        return arrival_time
-    else:
-        return "No arrival time available"
-
-
 if __name__ == "__main__":
     find_stop_near()

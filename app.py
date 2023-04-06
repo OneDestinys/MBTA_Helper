@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, url_for
-from mbta_helper import find_stop_near, get_arrival_time
+from mbta_helper import find_stop_near
 
 app = Flask(__name__)
 
@@ -15,10 +15,8 @@ def nearest_station():
     try:
         address = request.form.get('address')
         mbta_info = find_stop_near(address)
-        stop_id = mbta_info[0]
-        arrival_time =get_arrival_time(stop_id)
         print(mbta_info)
-        return render_template('mbta_station.html', mbta_info = mbta_info, arrival_time = arrival_time)
+        return render_template('mbta_station.html', mbta_info = mbta_info)
     except: 
         return render_template('error.html')
 
