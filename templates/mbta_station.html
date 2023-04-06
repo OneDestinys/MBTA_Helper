@@ -45,16 +45,48 @@
       padding-top: 10px;
       padding-bottom: 10px;
      }
+     #info {
+      border: 5px solid purple;
+     }
+     #joke {
+      border: 5px solid black;
+     }
+   #smile {
+    width: 100px;
+   }
+   @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        60% {
+          transform: rotate(390deg);
+        }
+        80% {
+          transform: rotate(330deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    #smile:hover {
+      animation-name: spin;
+      animation-duration: 2.5s;
+    }
     </style>
   </head>
   <body>
     <h3>
       Here is the MBTA station closest to you!
     </h3>
-    <div>
+    <div id = "info">
        <p>Your closest MBTA is {{ mbta_info[0] }}</p> 
-       <p>Your next train is at {{ mbta_info[2] }}</p>
-       <p>It is {{ mbta_info[1] }} that this station is wheelchair accessible</p> 
+       <p>It is {{ mbta_info[1] }} that this station is wheelchair accessible</p>
+    </div>
+    <div id = "joke">
+       <h1>Here's a fun joke to hopefully make your day happier</h4> 
+       <p>{{ joke[0] }}</p>
+       <p>{{ joke[1] }}</p>
+       <img src="static/smile.png" alt="Smiley Face" id = "smile">
     </div>
   </body>
 </html>

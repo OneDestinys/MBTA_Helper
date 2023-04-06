@@ -33,10 +33,12 @@ def get_lat_long(response_data: dict) -> tuple[str, str]:
 
 def mbta_stop_finder(lat_long) -> tuple[str, bool]:
     """Takes the lat and long, builds the mbta url, finds the closest mbta station and whether that station is wheelchair accessible"""
-    mbta_url = f'https://api-v3.mbta.com/stops?api_key={MBTA_API_KEY}&sort=distance&filter%5Blatitude%5D={lat_long[0]}&filter%5Blongitude%5D={lat_long[-1]}'
+    mbta_url = f'https://api-v3.mbta.com/stops?api_key={MBTA_API_KEY}&sort=distance&filter%5Blatitude%5D={lat_long[0]}&filter%5Blongitude%5D={lat_long[1]}'
+    print(mbta_url)
     f = urllib.request.urlopen(mbta_url)
     response_text_mbta = f.read().decode('utf-8')
     response_data_mbta = json.loads(response_text_mbta)
+    # pprint(response_data_mbta)
     station_name = response_data_mbta["data"][0]['attributes']['name']
     wheel_chair_accessible = bool(response_data_mbta["data"][0]['attributes']['wheelchair_boarding'])
     name_and_wheel = []
